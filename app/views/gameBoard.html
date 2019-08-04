@@ -1,0 +1,34 @@
+
+<div class="container" ng-controller="GameCtrl">
+    <div class="header">
+    <img src="img/jabra-logo.png" class="fade-in" />
+    </div>
+    <div class="game-board">
+    <div class="game-board-layer">
+        <div class="game-board-content">
+        <table>
+            <tr ng-repeat="row in grid">
+            <td ng-repeat="tile in row" ng-click="flipTile(tile)">
+                <div class="card-container fade-in">
+                <div class="card" ng-class="{flipped: tile.flipped, glow: tile.isSecond}">
+                    <img class="front" ng-src="img/cover.png">
+                    <img class="back" ng-src="img/{{tile.title}}.png">
+                </div>
+                </div>
+            </td>
+            </tr>
+        </table>
+
+        <div class="info-div">
+            <div class="click-counter">
+                Clicks: {{clickCount}}
+            </div>
+            <div class="click-time">
+                Time used: {{timeLimit | date: 'ss'}}
+            </div>
+        </div>
+
+        </div>
+    </div>
+    </div>
+</div>
